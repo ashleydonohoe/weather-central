@@ -25,16 +25,20 @@ body {
   color: white;
   padding: 5px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
 }
 
-.nav .weather-form {
-  margin-top: 20px;
+.nav h2 {
+  text-shadow: 2px 2px black;
 }
 
 .weather-form input {
-  font-size: 16px;
+  font-size: 18px;
   border-radius: 5px;
-  width: 60%;
+  text-align: center;
+  padding: 5px;
 }
 
 .nav .weather-form input {
@@ -45,12 +49,26 @@ body {
   background-color: #2ecc71;
   color: white;
   font-size: 14px;
+  padding: 8px;
+  border: 0;
+  border-radius: 5%;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* Home Page Styles */
 .home {
-  background: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)), url("http://i.imgur.com/2VWtMhg.jpg");
+  background: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)), url("http://i.imgur.com/2VWtMhg.jpg") center center;
   background-size: cover;
   height: 850px;
   overflow: hidden;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .nav {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
 }
