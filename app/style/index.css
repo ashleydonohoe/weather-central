@@ -6,9 +6,11 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  background-color: #22313f;
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
+  background: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)), url("http://i.imgur.com/2VWtMhg.jpg") center center;
+  background-size: cover;
+
 }
 
  /* Grid System */
@@ -27,7 +29,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px;
+  background-color: #22313f;
 }
 
 .nav h2 {
@@ -39,6 +41,7 @@ body {
   border-radius: 5px;
   text-align: center;
   padding: 5px;
+  box-shadow: 1px 1px 1px lightgrey;
 }
 
 .nav .weather-form input {
@@ -58,10 +61,28 @@ body {
 
 /* Home Page Styles */
 .home {
-  background: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)), url("http://i.imgur.com/2VWtMhg.jpg") center center;
-  background-size: cover;
-  height: 850px;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.home h1 {
+  font-size: 40px;
+}
+
+.home .weather-form {
+  align-items: center;
+}
+
+.home .weather-form input {
+  border: 1px solid darkgrey;
+}
+
+.home .weather-form-button {
+  display: block;
+  margin: 10px auto;
 }
 
 /* Mobile */
@@ -70,5 +91,9 @@ body {
   .nav {
     flex-wrap: wrap;
     flex-direction: column;
+  }
+
+  .home {
+    justify-content: flex-start;
   }
 }
