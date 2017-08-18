@@ -15,18 +15,16 @@ class Home extends Component {
   }
 
   handleSubmit(locationName) {
-    console.log(locationName);
-
     api.fetchCurrentWeather(locationName).then(function(forecast) {
       console.log(forecast);
-      // this.setState(function() {
-      //   var newState = {};
-      //   newState.locationName = locationName;
-      //   newState.locationData = forecast;
-      // });
-    });
+      this.setState(function() {
+        return {
+          locationName: locationName,
+          locationData: forecast
+        }
+      });
+    }.bind(this));
 
-    console.log(this.state.locationData);
   }
 
   render() {
