@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Form from "./Form";
+var api = require("../utils/api");
 
 class Home extends Component {
   constructor(props) {
@@ -14,15 +15,18 @@ class Home extends Component {
   }
 
   handleSubmit(locationName) {
-    var locationData;
+    console.log(locationName);
 
-    this.setState(function() {
-      var newState = {};
-      newState.locationName = locationName;
-
-      // TODO: Write API call to get the data for the location's weather
-      newState.locationData = locationData;
+    api.fetchCurrentWeather(locationName).then(function(forecast) {
+      console.log(forecast);
+      // this.setState(function() {
+      //   var newState = {};
+      //   newState.locationName = locationName;
+      //   newState.locationData = forecast;
+      // });
     });
+
+    console.log(this.state.locationData);
   }
 
   render() {

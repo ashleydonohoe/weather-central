@@ -6,7 +6,7 @@ class Nav extends Component {
     return (
       <header className="nav">
         <h2>Weather Central</h2>
-        <Form />
+        <Form onSubmit={this.handleSubmit}/>
       </header>
     );
   }
