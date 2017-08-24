@@ -16,7 +16,8 @@ class App extends Component {
           <Nav/>
           <Switch>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/forecast" component={Forecast}/>
+            <Route path="/forecast" component={Forecast}/>
+            <Route render={function() { return <p>Not Found</p>}}/>
             </Switch>
         </div>
       </Router>

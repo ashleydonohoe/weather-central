@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 var PropTypes = require("prop-types");
+var Link = require("react-router-dom").Link;
+var Forecast = require("./Forecast");
 
 class Form extends Component {
   constructor(props) {
@@ -29,10 +31,13 @@ class Form extends Component {
   }
 
   render() {
+    var locationName = this.state.locationName;
+    var match = this.props.match;
     return (
       <form className="weather-form" onSubmit={this.handleSubmit} value={this.state.locationName}>
         <input placeholder="city, state" name="city" onChange={this.handleChange}/>
-        <button type="submit" className="weather-form-button">Get Weather</button>
+        <Link className='weather-form-button' to={{pathname: this.props.match + '/forecast',
+search: '?city=' + locationName}}>Battle</Link>
       </form>
     );
   }
