@@ -82,8 +82,17 @@ body {
 
 .home .weather-form-button {
   display: block;
+  width: 100px;
   margin: 10px auto;
+  text-align: center;
+  text-decoration: none;
 }
+
+.weather-form-button {
+  text-align: center;
+  text-decoration: none;
+}
+
 
 /* Mobile */
 
