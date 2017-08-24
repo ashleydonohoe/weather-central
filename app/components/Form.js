@@ -36,7 +36,7 @@ class Form extends Component {
     return (
       <form className="weather-form" onSubmit={this.handleSubmit} value={this.state.locationName}>
         <input placeholder="city, state" name="city" onChange={this.handleChange}/>
-        <Link className='weather-form-button' to={{pathname: "" + '/forecast',
+        <Link className='weather-form-button' to={{pathname: '/forecast',
 search: '?city=' + locationName}}>Get Weather</Link>
       </form>
     );
