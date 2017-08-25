@@ -97,6 +97,11 @@ body {
   margin-left: 10px;
 }
 
+/* General Typography classes*/
+.text-center {
+  text-align: center;
+}
+
 /* Mobile */
 
 @media (max-width: 600px) {

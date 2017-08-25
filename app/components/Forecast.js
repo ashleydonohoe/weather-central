@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 var queryString = require("query-string");
 var api = require("../utils/api");
+var Loading = require("./Loading");
+var ForecastList = require("./ForecastList");
 
 class Forecast extends Component {
   constructor(props) {
@@ -13,7 +15,6 @@ class Forecast extends Component {
         loading: true
       };
   }
-
   componentDidMount() {
     var location = queryString.parse(this.props.location.search);
     var city = location.city;
@@ -43,14 +44,13 @@ class Forecast extends Component {
 
   render() {
 
-    // TODO: Create WeatherInfo Component
+    // TODO: Create WeatherList Component
     // TODO: For each of the five days, render a WeatherInfo component with the date and weather image based on condition
     // TODO: Make each WeatherInfo component clickable
     return (
       <div className="forecast">
-        <h1>Forecast</h1>
-        {this.state.locationName}
-        {console.log(this.state.fiveDayForecastData)}
+        <h1 className="text-center">{this.state.locationName}</h1>
+        {this.state.fiveDayForecastData !== null ? <ForecastList days={this.state.fiveDayForecastData.list}/>: <Loading/>}
       </div>
     );
   }
