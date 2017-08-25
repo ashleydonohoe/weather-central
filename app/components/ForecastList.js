@@ -3,6 +3,7 @@ var queryString = require("query-string");
 var api = require("../utils/api");
 var Loading = require("./Loading");
 var moment = require("moment");
+import { browserHistory } from 'react-router'
 
 class WeatherDetail extends Component {
   constructor(props) {
@@ -12,6 +13,8 @@ class WeatherDetail extends Component {
       days: null,
       loading: true
     }
+
+    this.showDetail = this.showDetail.bind(this);
   }
 
   componentDidMount() {
@@ -34,8 +37,10 @@ class WeatherDetail extends Component {
     });
   }
 
-  setImage(condition) {
-
+  showDetail(event) {
+    var selectedDay = this.state.days[event.target.id];
+    console.log(selectedDay);
+    browserHistory.push("/detail");
   }
 
     render() {
@@ -47,14 +52,14 @@ class WeatherDetail extends Component {
         {days === null ? console.log("no day yet") :
         days.map(function(day, index) {
           return (
-            <div key={index} className="info">
+            <div id={index} onClick={this.showDetail} key={index} className="info">
               <p className="date">{moment.unix(day.dt).format("dddd, MMMM Do")}</p>
                             <img className="weather-icon" src={"app/images/weather-icons/" + day.weather[0].icon + ".svg"}/>
               <p className="condition">{day.weather[0].description}</p>
 
             </div>
           )
-        })
+        }.bind(this))
     }
         </div>
       )

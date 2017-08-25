@@ -9,7 +9,7 @@ class Forecast extends Component {
       super(props);
 
       this.state = {
-        locationName: null,
+        locationName: "",
         fiveDayForecastData: null,
         error: null,
         loading: true

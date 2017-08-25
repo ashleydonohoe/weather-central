@@ -13,7 +13,7 @@ class Nav extends Component {
 
       this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
   handleSubmit(locationName) {
     api.fetchCurrentWeather(locationName).then(function(forecast) {
       console.log(forecast);
@@ -28,7 +28,7 @@ class Nav extends Component {
   render() {
     return (
       <header className="nav">
-        <h2>Weather Central</h2>
+        <a href="/"><h2>Weather Central</h2></a>
         <Form onSubmit={this.handleSubmit}/>
       </header>
     );
