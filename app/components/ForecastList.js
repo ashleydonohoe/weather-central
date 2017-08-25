@@ -9,18 +9,18 @@ class WeatherDetail extends Component {
     super(props);
 
     this.state = {
-      day: null,
+      days: null,
       loading: true
     }
   }
 
   componentDidMount() {
-      var day = this.props.day;
+      var days= this.props.days;
 
-      if(day === null) {
+      if(days === null) {
         return this.setState(function() {
           return {
-            error: "No day found",
+            error: "No days found",
             loading: false
           }
         })
@@ -29,22 +29,26 @@ class WeatherDetail extends Component {
        return {
            error: null,
            loading: false,
-           day: day
+           days: days
        }
     });
   }
 
     render() {
-      var day = this.state.day;
+      var days = this.state.days;
 
       return (
         <div className="weather-box">
 
-        {day === null ? console.log("no day yet") :
-        <div className="info">
-          <p>{moment.unix(day.dt).format("MM/DD/YYYY")}</p>
-          <p>{day.weather[0].description}</p>
-        </div>
+        {days === null ? console.log("no day yet") :
+        days.map(function(day) {
+          return (
+            <div className="info">
+              <p>{moment.unix(day.dt).format("dddd, MMMM Do")}</p>
+              <p>{day.weather[0].description}</p>
+            </div>
+          )
+        })
     }
         </div>
       )
@@ -82,13 +86,12 @@ class ForecastList extends Component {
     console.log(fiveDays);
   }
 
-  /* TODO: Render WeatherDetail for each day*/
   render() {
     var days = this.state.fiveDayForecastData;
     return (
       <div className="forecast">
         <h1>Forecast List Here</h1>
-        {days === null ? <Loading/> : <WeatherDetail day={days[0]}/>}
+        {days === null ? <Loading/> : <WeatherDetail days={days}/>}
       </div>
     );
   }
