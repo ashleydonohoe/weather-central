@@ -97,6 +97,21 @@ body {
   margin-left: 10px;
 }
 
+/* Weather Detail Blocks*/
+.weather-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.info {
+  background: white;
+  margin: 10px;
+  width: 300px;
+  text-align: center;
+}
+
 /* General Typography classes*/
 .text-center {
   text-align: center;

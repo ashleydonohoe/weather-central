@@ -34,6 +34,10 @@ class WeatherDetail extends Component {
     });
   }
 
+  setImage(condition) {
+
+  }
+
     render() {
       var days = this.state.days;
 
@@ -41,11 +45,13 @@ class WeatherDetail extends Component {
         <div className="weather-box">
 
         {days === null ? console.log("no day yet") :
-        days.map(function(day) {
+        days.map(function(day, index) {
           return (
-            <div className="info">
-              <p>{moment.unix(day.dt).format("dddd, MMMM Do")}</p>
-              <p>{day.weather[0].description}</p>
+            <div key={index} className="info">
+              <p className="date">{moment.unix(day.dt).format("dddd, MMMM Do")}</p>
+                            <img className="weather-icon" src={"app/images/weather-icons/" + day.weather[0].icon + ".svg"}/>
+              <p className="condition">{day.weather[0].description}</p>
+
             </div>
           )
         })
@@ -90,7 +96,6 @@ class ForecastList extends Component {
     var days = this.state.fiveDayForecastData;
     return (
       <div className="forecast">
-        <h1>Forecast List Here</h1>
         {days === null ? <Loading/> : <WeatherDetail days={days}/>}
       </div>
     );

@@ -43,13 +43,10 @@ class Forecast extends Component {
   }
 
   render() {
-
-    // TODO: Create WeatherList Component
-    // TODO: For each of the five days, render a WeatherInfo component with the date and weather image based on condition
     // TODO: Make each WeatherInfo component clickable
     return (
       <div className="forecast">
-        <h1 className="text-center">{this.state.locationName}</h1>
+        <h1 className="text-center">Five Day Forecast For {this.state.locationName}</h1>
         {this.state.fiveDayForecastData !== null ? <ForecastList days={this.state.fiveDayForecastData.list}/>: <Loading/>}
       </div>
     );
